@@ -119,7 +119,7 @@ const Home = () => {
             >
               <div
                 className="row align-items-center"
-                style={{ height: "80vh", overflow: "hidden" }}
+                style={{ }}
               >
                 <div
                   style={{
@@ -131,7 +131,7 @@ const Home = () => {
                   className="col-md-6 text-center text-md-start"
                 >
                   <motion.h1
-                    className="display-4"
+                    className="mobileHomeHeading display-4"
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
