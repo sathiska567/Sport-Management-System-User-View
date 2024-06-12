@@ -1,3 +1,9 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-y: hidden !important;
+
+}
+
 .homeContainer {
   position: relative;
   display: flex;
@@ -9,7 +15,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90vh;
+  height:100vh;  
   color: white;
   margin-top: 0;
   overflow: hidden !important;
@@ -85,24 +91,30 @@
   border: 1px solid #d3adf7;
 }
 
+.homeHeading {
+  font-size: 4.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
 
 /* Extra Small Devices (Phones) - Less than 576px */
 @media (max-width: 576px) { 
   .homeContainer {
-    padding: 4rem 0;  /* Reduce padding on smaller screens */
-    height: auto;   /* Allow content to take up natural height */
+    padding: 4rem 0;  
+    
   }
 
-  .mobileHomeHeading {
-    font-size: 1.5rem !important;   /* Adjust font size for readability */
+  .homeHeading {
+    font-size: 3rem !important;  
   }
 
   .navCustom {
-    height: auto; /* Remove fixed height on mobile */
+    height: auto; 
   }
 
   .container {
-    width: 90%; /* Adjust width for better mobile layout */
+    width: 90%; 
   }
 }
 
@@ -112,26 +124,26 @@
     padding: 5rem 0;  /* Reduce padding on smaller screens */
   }
   
-  .mobileHomeHeading {
-    font-size: 2rem !important;  /* Adjust font size for readability */
+  .homeHeading {
+    font-size: 2rem !important;  
   }
 
   .navCustom {
-    height: auto; /* Remove fixed height on mobile */
+    height: auto; 
   }
 }
 
 /* Medium Devices (Desktops) - 768px to 992px */
 @media (min-width: 768px) and (max-width: 992px) { 
   .navCustom {
-    height: 8vh; /* Adjust height for medium screens */
+    height: 8vh; 
   }
 }
 
 /* Large Devices (Large Desktops) - 992px and up */
 @media (min-width: 992px) {
   .navCustom {
-    height: 10vh; /* Height for larger screens */
+    height: 10vh; 
   }
 
 }

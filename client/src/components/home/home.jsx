@@ -117,10 +117,7 @@ const Home = () => {
               transition={{ duration: 1, ease: "easeInOut" }}
               style={{ color: "white", position: "relative" }}
             >
-              <div
-                className="row align-items-center"
-                style={{ }}
-              >
+              <div className="row align-items-center" style={{}}>
                 <div
                   style={{
                     width: "80%",
@@ -131,15 +128,10 @@ const Home = () => {
                   className="col-md-6 text-center text-md-start"
                 >
                   <motion.h1
-                    className="mobileHomeHeading display-4"
+                    className={`${homeStyles.homeHeading} display-4`}
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
-                    style={{
-                      fontSize: "4.5rem",
-                      fontWeight: 700,
-                      marginBottom: "1rem",
-                    }}
                   >
                     Cricket Insight Your Ultimate Cricket Companion
                   </motion.h1>
