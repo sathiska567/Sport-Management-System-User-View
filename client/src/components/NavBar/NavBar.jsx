@@ -68,7 +68,7 @@ const NavBar = ({children}) => {
               />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
-                  <Nav.Link href="#" className="nav-link me-3">
+                  <Nav.Link href="/" className="nav-link me-3">
                     <span className={navBarStyles.underlineAnimation}>
                       Home
                     </span>
@@ -92,9 +92,18 @@ const NavBar = ({children}) => {
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Players</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Coaches</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Referees</Dropdown.Item>
+                      <Dropdown.Item href="/player-profiles">
+                        Players
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/coach-profiles">
+                        Coaches
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/referee-profiles">
+                        Referees
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/team-manager-profiles">
+                        Event Managers
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <Nav.Link href="#" className="nav-link me-3">
@@ -112,7 +121,7 @@ const NavBar = ({children}) => {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          {children} 
+          {children}
         </div>
       </motion.div>
     </AnimatePresence>
