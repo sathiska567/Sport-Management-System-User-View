@@ -1,5 +1,9 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from './components/home/home.jsx';
+import Home from './components/Home/Home.jsx';
+import Player from './components/Profiles/PlayerProfiles/PlayerProfile.jsx';
+import Coach from './components/Profiles/CoachProfiles/CoachProfiles.jsx';
+import Referee from "./components/Profiles/RefereeProfiles/RefereeProfiles.jsx";
+import TeamManager from "./components/Profiles/TeamManagerProfiles/TeamManagerProfiles.jsx";
 
 function App() {
   return (
@@ -7,6 +11,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Routes>
+        <Route path="/player-profiles" element={<Player />} />
+      </Routes>
+      <Routes>
+        <Route path="/coach-profiles" element={<Coach />} />
+      </Routes>
+      <Routes>
+        <Route path="/referee-profiles" element={<Referee />} />
+      </Routes>
+      <Routes>
+        <Route path="/team-manager-profiles" element={<TeamManager />} />
+      </Routes>
+
     </BrowserRouter>
   );
 }

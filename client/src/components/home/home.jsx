@@ -1,9 +1,9 @@
 import React from 'react'
-import homeStyles from './home.module.css'
+import homeStyles from './Home.module.css'
 import { motion } from 'framer-motion'
 import NavBar from '../NavBar/NavBar'
 
-const home1 = () => {
+const Home = () => {
   return (
     <NavBar>
       <div className={homeStyles.homeContainer}>
@@ -49,4 +49,4 @@ const home1 = () => {
   );
 }
 
-export default home1
+export default Home;
