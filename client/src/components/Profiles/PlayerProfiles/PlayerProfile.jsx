@@ -2,17 +2,42 @@ import React from "react";
 import playerProfileStyles from "./PlayerProfile.module.css";
 import NavBar from "../../NavBar/NavBar";
 import { Progress, Flex } from "antd";
+import { motion } from "framer-motion";
 
 const PlayerProfile = () => {
+
+  const downLoadMedicalReport = () => {
+    console.log("Download Medical Report");
+  }
+
   return (
     <>
       <NavBar />
       <div className={playerProfileStyles.outerContainer}>
         <div className={playerProfileStyles.container}>
-          <div className={playerProfileStyles.playerName}>
-            <h1>Player Name</h1>
-          </div>
-          <div className={playerProfileStyles.profileInfo}>
+          <motion.div
+            className={playerProfileStyles.playerName}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h1>
+              <span>Player Name</span>
+            </h1>
+            <div>
+              <button onClick={
+                () => {
+                  downLoadMedicalReport();
+                }
+              }>Get Medical Report</button>
+            </div>
+          </motion.div>
+          <motion.div
+            className={playerProfileStyles.profileInfo}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <div className={playerProfileStyles.playerImage}>
               <div>
                 <img
@@ -23,7 +48,20 @@ const PlayerProfile = () => {
                 />
               </div>
             </div>
-            <div className={playerProfileStyles.playerDetails}>
+            <motion.div
+              className={playerProfileStyles.playerDetails}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                duration: 0.5,
+                delayChildren: 0.2,
+                staggerChildren: 0.2,
+              }}
+            >
               <div>
                 <h2>Player Information</h2>
                 <div className={playerProfileStyles.playerDetails}>
@@ -34,7 +72,7 @@ const PlayerProfile = () => {
                           Name
                         </td>
                         <td>
-                          :&emsp;<span>ABS Silva</span>
+                          : <span>ABS Silva</span>
                         </td>
                       </tr>
                       <tr>
@@ -42,7 +80,7 @@ const PlayerProfile = () => {
                           Age
                         </td>
                         <td>
-                          :&emsp;<span>24</span>
+                          : <span>24</span>
                         </td>
                       </tr>
                       <tr>
@@ -50,7 +88,7 @@ const PlayerProfile = () => {
                           Born
                         </td>
                         <td>
-                          :&emsp;<span>1999</span>
+                          : <span>1999</span>
                         </td>
                       </tr>
                       <tr>
@@ -58,7 +96,7 @@ const PlayerProfile = () => {
                           District
                         </td>
                         <td>
-                          :&emsp;<span>Galle</span>
+                          : <span>Galle</span>
                         </td>
                       </tr>
                       <tr>
@@ -66,24 +104,36 @@ const PlayerProfile = () => {
                           Career
                         </td>
                         <td>
-                          :&emsp;<span>Batsman</span>
+                          : <span>Batsman</span>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className={playerProfileStyles.playerStats}>
+          <motion.div
+            className={playerProfileStyles.playerStats}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <div className={playerProfileStyles.statsHeading}>
-              <h2>
-                Player Performance
-              </h2>
+              <h2>Player Performance</h2>
             </div>
             <div className={playerProfileStyles.statsContainer}>
-              <div className={playerProfileStyles.statCategory}>
+              <motion.div
+                className={playerProfileStyles.statCategory}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 <div>
                   <h4 className={playerProfileStyles.Stat}>Batting</h4>
                 </div>
@@ -107,8 +157,17 @@ const PlayerProfile = () => {
                     />
                   </Flex>
                 </div>
-              </div>
-              <div className={playerProfileStyles.statCategory}>
+              </motion.div>
+              <motion.div
+                className={playerProfileStyles.statCategory}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 <div>
                   <h4 className={playerProfileStyles.Stat}>Balling</h4>
                 </div>
@@ -132,8 +191,17 @@ const PlayerProfile = () => {
                     />
                   </Flex>
                 </div>
-              </div>
-              <div className={playerProfileStyles.statCategory}>
+              </motion.div>
+              <motion.div
+                className={playerProfileStyles.statCategory}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 <div>
                   <h4 className={playerProfileStyles.Stat}>Fielding</h4>
                 </div>
@@ -157,9 +225,9 @@ const PlayerProfile = () => {
                     />
                   </Flex>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
