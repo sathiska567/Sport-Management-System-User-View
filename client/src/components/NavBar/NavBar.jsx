@@ -92,9 +92,7 @@ const NavBar = ({children}) => {
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href="/player-profiles">
-                        Players
-                      </Dropdown.Item>
+                      <Dropdown.Item href="/profiles">Players</Dropdown.Item>
                       <Dropdown.Item href="/coach-profiles">
                         Coaches
                       </Dropdown.Item>

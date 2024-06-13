@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './components/Home/Home.jsx';
+import PlayerProfiles from './components/Profiles/PlayerProfiles/PlayerProfiles.jsx'
 import Player from './components/Profiles/PlayerProfiles/PlayerProfile.jsx';
 import Coach from './components/Profiles/CoachProfiles/CoachProfiles.jsx';
 import Referee from "./components/Profiles/RefereeProfiles/RefereeProfiles.jsx";
@@ -10,6 +11,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+      </Routes>
+      <Routes>
+        <Route path="/profiles" element={<PlayerProfiles />} />
       </Routes>
       <Routes>
         <Route path="/player-profiles" element={<Player />} />
@@ -23,7 +27,6 @@ function App() {
       <Routes>
         <Route path="/team-manager-profiles" element={<TeamManager />} />
       </Routes>
-
     </BrowserRouter>
   );
 }
