@@ -4,11 +4,10 @@ import NavBar from "../../NavBar/NavBar";
 import { Progress, Flex } from "antd";
 import { motion } from "framer-motion";
 
-const PlayerProfile = () => {
-
+const RefereeProfile = () => {
   const downLoadMedicalReport = () => {
     console.log("Download Medical Report");
-  }
+  };
 
   return (
     <>
@@ -22,7 +21,7 @@ const PlayerProfile = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h1>
-              <span>Player Name</span>
+              <span>Referee Name</span>
             </h1>
             <div>
               <button
@@ -44,7 +43,7 @@ const PlayerProfile = () => {
               <div>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s"
-                  alt="Player Name"
+                  alt="referee Name"
                   width="300px"
                   height="270px"
                 />
@@ -65,7 +64,7 @@ const PlayerProfile = () => {
               }}
             >
               <div>
-                <h2>Player Information</h2>
+                <h2>Referee Information</h2>
                 <div className={ProfileStyles.memberDetails}>
                   <table>
                     <tbody>
@@ -98,7 +97,7 @@ const PlayerProfile = () => {
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Career</td>
                         <td>
-                          : <span>Batsman</span>
+                          : <span>Referee</span>
                         </td>
                       </tr>
                     </tbody>
@@ -108,8 +107,8 @@ const PlayerProfile = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className={ProfileStyles.memberStats}
+          {/* <motion.div
+            className={ProfileStyles.managerStats}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -221,11 +220,11 @@ const PlayerProfile = () => {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </>
   );
 };
 
-export default PlayerProfile;
+export default RefereeProfile;

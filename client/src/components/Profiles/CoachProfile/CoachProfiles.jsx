@@ -6,64 +6,82 @@ import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const RefereeProfiles = () => {
+const CoachProfiles = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     const sampleImages = [
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee-profile",
+        link: "/coach-profile",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
       },
       {
         src: "https://via.placeholder.com/150",
-        headerText: "Referee Name 1",
+        headerText: "Coach Name 1",
         bottomText: "Position: Striker",
-        link: "/referee/1",
+        link: "/coach/1",
+      },
+      {
+        src: "https://via.placeholder.com/150",
+        headerText: "Coach Name 1",
+        bottomText: "Position: Striker",
+        link: "/coach/1",
+      },
+      {
+        src: "https://via.placeholder.com/150",
+        headerText: "Coach Name 1",
+        bottomText: "Position: Striker",
+        link: "/coach/1",
+      },
+      {
+        src: "https://via.placeholder.com/150",
+        headerText: "Coach Name 1",
+        bottomText: "Position: Striker",
+        link: "/coach/1",
       },
     ];
     setImages(sampleImages);
@@ -90,7 +108,7 @@ const RefereeProfiles = () => {
   return (
     <Navbar>
       <div className={profileStyles.outerContainer}>
-        <h3>Referee Profiles</h3>
+        <h3>Coach Profiles</h3>
         <div className={profileStyles.searchContainer}>
           <div class="input-group mb-3">
             <input
@@ -151,7 +169,7 @@ const RefereeProfiles = () => {
                         variants={imageVariants}
                         className={profileStyles.bottom}
                       >
-                        Position: Referee
+                        Position: Coach
                       </motion.div>
                     </Link>
                   </Col>
@@ -165,4 +183,4 @@ const RefereeProfiles = () => {
   );
 };
 
-export default RefereeProfiles;
+export default CoachProfiles;

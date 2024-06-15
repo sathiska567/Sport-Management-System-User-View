@@ -63,8 +63,12 @@ const NavBar = ({children}) => {
                 />
               </Navbar.Brand>
               <NavbarToggle
-                style={{ backgroundColor: "rgba(255,255,255,0.5" }}
+                className="navbar-dark"
                 aria-controls="basic-navbar-nav"
+                style={{
+                  backgroundColor: "transparent",
+                  border: "2px solid rgba(255, 255, 255, 0.5)",
+                }}
               />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
@@ -92,7 +96,9 @@ const NavBar = ({children}) => {
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href="/profiles">Players</Dropdown.Item>
+                      <Dropdown.Item href="/player-profiles">
+                        Players
+                      </Dropdown.Item>
                       <Dropdown.Item href="/coach-profiles">
                         Coaches
                       </Dropdown.Item>
@@ -100,7 +106,7 @@ const NavBar = ({children}) => {
                         Referees
                       </Dropdown.Item>
                       <Dropdown.Item href="/team-manager-profiles">
-                        Event Managers
+                        Team Managers
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
