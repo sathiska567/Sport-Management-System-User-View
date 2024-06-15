@@ -44,7 +44,7 @@
 }
 
 .ImageLink:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .gridItem img {
@@ -62,4 +62,29 @@
   font-size: 0.8rem;
   margin-top: 0.2rem;
   color: rgba(255, 255, 255, 0.7);
+}
+.Image {
+  width: 250px !important;
+  height: auto;
+}
+
+@media (max-width: 576px) {
+  .outerContainer {
+    width: 90%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .outerContainer {
+    width: 90%;
+    height: 92vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .outerContainer {
+    width: 90%;
+    margin: 0 auto;
+    height: 92vh;
+  }
 }
