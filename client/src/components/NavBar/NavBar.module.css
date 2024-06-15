@@ -21,10 +21,6 @@ body {
   
 }
 
-.container {
-  text-align: center;
-}
-
 
 .underlineAnimation {
   display: inline-block;
@@ -34,6 +30,10 @@ body {
   padding-bottom: 5px;
   color: white;
   font-size: 1.1rem;
+}
+
+.navbar-toggler-icon {
+  
 }
 
 .underlineAnimation::before {

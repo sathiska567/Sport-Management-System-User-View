@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import profileStyles from "./PlayerProfiles.module.css";
+import profileStyles from "../MemberProfilesStyles/MemberProfilesStyles.module.css";
 import Navbar from "../../NavBar/NavBar";
 import { Image } from "antd";
 import { Row, Col } from "react-bootstrap";
@@ -15,73 +15,49 @@ const PlayerProfiles = () => {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player-profiles",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
       {
         src: "https://via.placeholder.com/150",
         headerText: "Player Name 1",
         bottomText: "Position: Striker",
-        link: "/player/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Player Name 1",
-        bottomText: "Position: Striker",
-        link: "/player/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Player Name 1",
-        bottomText: "Position: Striker",
-        link: "/player/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Player Name 1",
-        bottomText: "Position: Striker",
-        link: "/player/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Player Name 1",
-        bottomText: "Position: Striker",
-        link: "/player/1",
+        link: "/player-profile",
       },
     ];
     setImages(sampleImages);
@@ -109,6 +85,32 @@ const PlayerProfiles = () => {
     <Navbar>
       <div className={profileStyles.outerContainer}>
         <h3>Player Profiles</h3>
+        <div className={profileStyles.searchContainer}>
+          <div class="input-group mb-3">
+            <input
+              className={profileStyles.searchInput}
+              type="text"
+              class="form-control"
+              placeholder="Search player name"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              style={{
+                backgroundColor: "transparent",
+                color: "white",
+                border: "2px solid rgba(255, 255, 255, 0.4)",
+              }}
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                className={profileStyles.searchButton}
+                type="button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
         <div className={profileStyles.profiles}>
           <AnimatePresence>
             <motion.div
@@ -117,19 +119,21 @@ const PlayerProfiles = () => {
               animate="visible"
               className={profileStyles.grid}
             >
-              <Row xs={1} md={2} lg={4}>
+              <Row xs={1} sm={2} md={3} lg={5} className="g-4">
                 {images.map((image, index) => (
                   <Col key={index} className={profileStyles.gridItem}>
-                    <Link
-                      className={profileStyles.ImageLink}
-                      to={image.link}
-                    >
+                    <Link className={profileStyles.ImageLink} to={image.link}>
                       {" "}
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.imageContainer}
                       >
-                        <Image className={profileStyles.Image} preview={false} src={image.src} alt={image.headerText} />
+                        <Image
+                          className={profileStyles.Image}
+                          preview={false}
+                          src={image.src}
+                          alt={image.headerText}
+                        />
                       </motion.div>
                       <motion.div
                         variants={imageVariants}

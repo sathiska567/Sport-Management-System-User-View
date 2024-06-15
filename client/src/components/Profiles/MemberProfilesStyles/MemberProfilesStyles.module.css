@@ -19,6 +19,7 @@
 .profiles {
   padding: 50px;
   overflow-y: auto;
+  width: 100%;
 }
 
 .profiles::-webkit-scrollbar {
@@ -63,14 +64,47 @@
   margin-top: 0.2rem;
   color: rgba(255, 255, 255, 0.7);
 }
+
 .Image {
-  width: 250px !important;
+  width: 100% !important;
   height: auto;
 }
+
+
+
+.searchContainer {
+  width: 50%;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5vh;
+  margin-top: 3vh;
+}
+
+.searchButton {
+  padding: 5px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.searchButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: white;
+}
+
 
 @media (max-width: 576px) {
   .outerContainer {
     width: 90%;
+  }
+  .searchContainer { 
+    width: 90% ;
   }
 }
 
@@ -79,6 +113,7 @@
     width: 90%;
     height: 92vh;
   }
+
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
