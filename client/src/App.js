@@ -5,6 +5,7 @@ import Player from './components/Profiles/PlayerProfiles/PlayerProfile.jsx';
 import Coach from './components/Profiles/CoachProfiles/CoachProfiles.jsx';
 import Referee from "./components/Profiles/RefereeProfiles/RefereeProfiles.jsx";
 import TeamManager from "./components/Profiles/TeamManagerProfiles/TeamManagerProfiles.jsx";
+import PointTable from './components/PointTable/PointTable.jsx';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/team-manager-profiles" element={<TeamManager />} />
+      </Routes>
+      <Routes>
+        <Route path="/PointTable" element={<PointTable />} />
       </Routes>
     </BrowserRouter>
   );
