@@ -88,20 +88,20 @@ const PlayerProfiles = () => {
   }, []);
 
   const imageVariants = {
-    hidden: { opacity: 0, y: 20, transition: { duration: 0.5 } },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 20, transition: { duration: 0.7 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
   };
 
   const gridItemVariants = {
     hidden: {
       opacity: 0,
       y: 20,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
+      transition: { duration: 0.7, staggerChildren: 0.1 },
     },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
+      transition: { duration: 0.7, staggerChildren: 0.1 },
     },
   };
 
@@ -117,7 +117,7 @@ const PlayerProfiles = () => {
               animate="visible"
               className={profileStyles.grid}
             >
-              <Row xs={1} md={2} lg={6}>
+              <Row xs={1} md={2} lg={4}>
                 {images.map((image, index) => (
                   <Col key={index} className={profileStyles.gridItem}>
                     <Link
@@ -129,7 +129,7 @@ const PlayerProfiles = () => {
                         variants={imageVariants}
                         className={profileStyles.imageContainer}
                       >
-                        <Image preview={false} src={image.src} alt={image.headerText} />
+                        <Image className={profileStyles.Image} preview={false} src={image.src} alt={image.headerText} />
                       </motion.div>
                       <motion.div
                         variants={imageVariants}
