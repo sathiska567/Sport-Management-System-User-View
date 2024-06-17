@@ -3,8 +3,6 @@ import axios from 'axios';
 import './EventTable.css';
 import NavBar from '../NavBar/NavBar'
 
-
-
 const EventTable = () => {
 
 
