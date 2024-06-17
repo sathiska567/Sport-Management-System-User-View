@@ -11,79 +11,23 @@ const PointTable = () => {
   const [points, setPoints] = useState([]);
 
 
+  const fetchPoints = async () => {
+    try {
+      const response = await axios.get('http://localhost:5050/api/v1/PointTableFullCode/get-pointTable');
+      setPoints(response.data.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   useEffect(() => {
-
-
-    
-    const fetchPoint = async () => {
-
-      try {
-      
-      // API call
-        const response = await axios.get('http://localhost:5000/api/pointTable');
-
-
-        setPoints(response.data); 
-      } 
-      
-      catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchPoint();
+     fetchPoints();
   }, []);
 
  
 
 
-  const dummyPoints = [
-    
-    {
-      _id: 1,
-      nameOfTheEvent: 'Event 1',
-      nameOfTheTeam: 'Dummy Team 1',
-      location: '2',
-      eventNewDate: '0',
-      formattedTime: '+1.2334',
-    },
-    {
-      _id: 2,
-      nameOfTheEvent: 'Event 2',
-      nameOfTheTeam: 'Dummy Team 2',
-      location: '4',
-      eventNewDate: '1',
-      formattedTime: '-1.03224',
-    },
-    {
-      _id: 3,
-      nameOfTheEvent: 'Event 3',
-      nameOfTheTeam: 'Dummy Team 3',
-      location: '10',
-      eventNewDate: '2',
-      formattedTime: '+3.23232',
-    },
-    {
-      _id: 4,
-      nameOfTheEvent: 'Event 4',
-      nameOfTheTeam: 'Dummy Team 3',
-      location: '10',
-      eventNewDate: '2',
-      formattedTime: '+3.23232',
-    },
-    {
-      _id: 5,
-      nameOfTheEvent: 'Event 5',
-      nameOfTheTeam: 'Dummy Team 5',
-      location: '2',
-      eventNewDate: '0',
-      formattedTime: '+1.2334',
-    },
-  ];
-
   
-  const pointList = points.length > 0 ? points : dummyPoints;
-
   return (
 
 
@@ -112,13 +56,13 @@ const PointTable = () => {
 
 
           <tbody>
-            {pointList.map((point) => (
+            {points.map((point) => (
               <tr key={point._id}>
-                <td>{point.nameOfTheEvent}</td>
+                <td>{point.nameOfTheMatch}</td>
                 <td>{point.nameOfTheTeam}</td>
-                <td>{point.location}</td>
-                <td>{point.eventNewDate}</td>
-                <td>{point.formattedTime}</td>
+                <td>{point.wonMatches}</td>
+                <td>{point.lostMatches}</td>
+                <td>{point.nrr}</td>
               </tr>
             ))}
           </tbody>
