@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getPointTable } = require("../../../Controllers/PointTableCodeController/PointTableCodeController");
+const { getPointTable } = require("../../Controllers/PointTableCodeController/PointTableCodeController");
 
 
 

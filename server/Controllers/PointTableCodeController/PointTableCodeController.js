@@ -1,12 +1,8 @@
 const PointTableFormModel = require("../../Model/PointTableFormModel/PointTableFormModel");
 
-
-
-
-
 const getPointTable = async (req, res) => {
 
-    
+
     try {
         let data = PointTableFormModel.find({})
 
@@ -24,10 +20,10 @@ const getPointTable = async (req, res) => {
 
 
                 const q = query.q;
-                data.find({ nameOfTheTeam: { $regex: q, $options: "i"}});
+                data.find({ nameOfTheTeam: { $regex: q, $options: "i" } });
             }
 
-           
+
         }
 
 
@@ -44,17 +40,17 @@ const getPointTable = async (req, res) => {
                     r.totalMarksForEachTeam / r.totalOversEachTeam
                 )).toFixed(2);
 
-                return {...r, nrr};
+                return { ...r, nrr };
             })
 
 
-            
+
             res.json({
                 success: true,
                 data: data
             })
         }
-        
+
 
 
 
@@ -69,12 +65,12 @@ const getPointTable = async (req, res) => {
                 error
             })
         }
-       
-
-    } 
 
 
-    
+    }
+
+
+
     catch (error) {
 
         res.status(400).send({

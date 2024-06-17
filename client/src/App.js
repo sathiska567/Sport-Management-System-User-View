@@ -6,10 +6,11 @@ import Coach from './components/Profiles/CoachProfile/CoachProfile.jsx';
 import CoachProfiles from './components/Profiles/CoachProfile/CoachProfiles.jsx';
 import RefereeProfiles from "./components/Profiles/RefereeProfiles/RefereeProfiles.jsx";
 import Referee from "./components/Profiles/RefereeProfiles/RefereeProfile.jsx";
-import TeamManagerProfiles from "./components/Profiles/TeamManagerProfiles/TeamManagerProfiles.jsx";
-import TeamManager from "./components/Profiles/TeamManagerProfiles/TeamManagerProfile.jsx";
+
 import EventTable from "./components/EventTable/EvenTable.jsx"
 import PointTable from "./components/PointTable/PointTable.jsx"
+import EventOrganizerProfiles from './components/Profiles/EventOrganizerProfiles/EventOrganizerProfiles.jsx';
+import EventOrganizerProfile from './components/Profiles/EventOrganizerProfiles/EventOrganizerProfile.jsx';
 function App() {
   return (
     <BrowserRouter>
@@ -35,10 +36,10 @@ function App() {
         <Route path="/referee-profile" element={<Referee />} />
       </Routes>
       <Routes>
-        <Route path="/team-manager-profiles" element={<TeamManagerProfiles />} />
+        <Route path="/eventOrganizer-profiles" element={<EventOrganizerProfiles/>} />
       </Routes>
       <Routes>
-        <Route path="/team-manager-profile" element={<TeamManager />} />
+        <Route path="/eventOrganizer-profile" element={<EventOrganizerProfile/>} />
       </Routes>
 
       <Routes>

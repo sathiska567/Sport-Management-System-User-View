@@ -7,7 +7,10 @@ require("./db/mongoDb");
 
 const GetPlayerProfileRoute = require("./router/GetPlayerProfileRoute/GetPlayerProfileRoute")
 // const GetProfileImageRoute = require("./router/GetProfileImageRoute/GetProfileImageRoute")
-const PointTableFullCode = require("./router/GetPlayerProfileRoute/PointTableCodeRoute/PointTableCodeRoute")
+const PointTableFullCode = require("./router/PointTableCodeRoute/PointTableCodeRoute")
+const GetCoachProfileRoute = require("./router/GetCoachProfileRoute/GetCoachProfileRoute")
+const GetEOProfileRoute = require("./router/GetEOProfileRoute/GetEOProfileRoute")
+
 
 const app = express();
 
@@ -20,7 +23,10 @@ app.use(cors()); // Middleware to enable CORS
 app.use("/api/v1/get-player",GetPlayerProfileRoute)
 
 // GET PLAYERS PROFILE IMAGE
-// app.use("/api/v1/profile",GetProfileImageRoute)
+app.use("/api/v1/coach",GetCoachProfileRoute)
+
+// GET PLAYERS PROFILE IMAGE
+app.use("/api/v1/eventOrganizer",GetEOProfileRoute)
 
 //Point table code
 app.use("/api/v1/PointTableFullCode",PointTableFullCode);

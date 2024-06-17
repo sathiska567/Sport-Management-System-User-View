@@ -4,7 +4,7 @@ import NavBar from "../../NavBar/NavBar";
 import { Progress, Flex } from "antd";
 import { motion } from "framer-motion";
 
-const TeamManagerProfile = () => {
+const EventOrganizerProfile = () => {
   const downLoadMedicalReport = () => {
     console.log("Download Medical Report");
   };
@@ -227,4 +227,4 @@ const TeamManagerProfile = () => {
   );
 };
 
-export default TeamManagerProfile;
+export default EventOrganizerProfile;
