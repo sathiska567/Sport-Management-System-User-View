@@ -115,6 +115,11 @@ const NavBar = ({children}) => {
                       About
                     </span>
                   </Nav.Link>
+                  <Nav.Link href="/PointTable" className="nav-link me-3">
+                    <span className={navBarStyles.underlineAnimation}>
+                      Point Table
+                    </span>
+                  </Nav.Link>
                 </Nav>
                 <Button
                   className={navBarStyles.joinButton}
