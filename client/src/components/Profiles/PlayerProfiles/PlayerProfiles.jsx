@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import profileStyles from "../MemberProfilesStyles/MemberProfilesStyles.module.css";
 import Navbar from "../../NavBar/NavBar";
-import { Image } from "antd";
+import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 const PlayerProfiles = () => {
   const [images, setImages] = useState([]);
@@ -60,7 +61,7 @@ const PlayerProfiles = () => {
         link: "/player-profile",
       },
     ];
-    setImages(sampleImages);
+    // setImages(sampleImages);
   }, []);
 
   const imageVariants = {
@@ -80,6 +81,22 @@ const PlayerProfiles = () => {
       transition: { duration: 0.7, staggerChildren: 0.1 },
     },
   };
+
+  const getAllPlayerProfileImages = async()=>{
+    try {
+      const imageResponse = await axios.get("http://localhost:5050/api/v1/get-player/profile")
+      console.log(imageResponse);
+      if(imageResponse.data.success){
+        setImages(imageResponse.data.profileData)
+      }
+    } catch (error) {
+       message.error(error.message);
+    }
+  }
+
+  useEffect(()=>{
+    getAllPlayerProfileImages();
+  },[])
 
   return (
     <Navbar>
@@ -131,21 +148,22 @@ const PlayerProfiles = () => {
                         <Image
                           className={profileStyles.Image}
                           preview={false}
-                          src={image.src}
+                          src={image.image}
                           alt={image.headerText}
+                          link="/player-profile"
                         />
                       </motion.div>
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.header}
                       >
-                        {image.headerText}
+                        {image.playerName}
                       </motion.div>
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.bottom}
                       >
-                        {image.bottomText}
+                        {image.playerEmail}
                       </motion.div>
                     </Link>
                   </Col>

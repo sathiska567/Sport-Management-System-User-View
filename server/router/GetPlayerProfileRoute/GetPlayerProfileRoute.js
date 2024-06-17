@@ -1,11 +1,13 @@
 const express = require('express');
-const { GetPlayerProfileController } = require('../../Controllers/GetPlayerProfileController/GetPlayerProfileController');
+const { GetPlayerProfileController, GetProfileImageController } = require('../../Controllers/GetPlayerProfileController/GetPlayerProfileController');
 const router = express.Router();
 
 
 // get profile controller
-router.post("/profile",GetPlayerProfileController)
+router.get("/profile",GetPlayerProfileController)
 
 
+// GET All PROFILE IMAGE
+router.get("/get-all-profile-image",GetProfileImageController)
 
 module.exports = router;

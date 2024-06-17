@@ -6,6 +6,7 @@ const cors = require("cors");
 require("./db/mongoDb"); 
 
 const GetPlayerProfileRoute = require("./router/GetPlayerProfileRoute/GetPlayerProfileRoute")
+// const GetProfileImageRoute = require("./router/GetProfileImageRoute/GetProfileImageRoute")
 
 const app = express();
 
@@ -16,6 +17,9 @@ app.use(cors()); // Middleware to enable CORS
 
 // GET PLAYERS PROFILE
 app.use("/api/v1/get-player",GetPlayerProfileRoute)
+
+// GET PLAYERS PROFILE IMAGE
+// app.use("/api/v1/profile",GetProfileImageRoute)
 
 
 const PORT = process.env.PORT || 3000; // Define a default port if PORT is not set in .env
