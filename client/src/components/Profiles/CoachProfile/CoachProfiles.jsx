@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import profileStyles from "../MemberProfilesStyles/MemberProfilesStyles.module.css";
 import Navbar from "../../NavBar/NavBar";
-import { Image } from "antd";
+import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const CoachProfiles = () => {
   const [images, setImages] = useState([]);
@@ -84,7 +85,7 @@ const CoachProfiles = () => {
         link: "/coach/1",
       },
     ];
-    setImages(sampleImages);
+    // setImages(sampleImages);
   }, []);
 
   const imageVariants = {
@@ -104,6 +105,23 @@ const CoachProfiles = () => {
       transition: { duration: 0.7, staggerChildren: 0.1 },
     },
   };
+
+  const getAllCoachProfileImages = async()=>{
+    try {
+      const imageResponse = await axios.get("http://localhost:5050/api/v1/coach/profile")
+      console.log(imageResponse);
+      if(imageResponse.data.success){
+        setImages(imageResponse.data.profileData)
+      }
+    } catch (error) {
+       message.error(error.message);
+    }
+  }
+
+  useEffect(()=>{
+    getAllCoachProfileImages();
+  },[])
+
 
   return (
     <Navbar>
@@ -155,7 +173,7 @@ const CoachProfiles = () => {
                         <Image
                           className={profileStyles.Image}
                           preview={false}
-                          src={image.src}
+                          src={image.image}
                           alt={image.headerText}
                         />
                       </motion.div>
@@ -163,13 +181,13 @@ const CoachProfiles = () => {
                         variants={imageVariants}
                         className={profileStyles.header}
                       >
-                        {image.headerText}
+                        {image.coachName}
                       </motion.div>
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.bottom}
                       >
-                        Position: Coach
+                        {image.coachEmail}
                       </motion.div>
                     </Link>
                   </Col>

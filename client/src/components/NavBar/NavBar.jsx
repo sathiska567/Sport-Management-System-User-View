@@ -105,8 +105,8 @@ const NavBar = ({children}) => {
                       <Dropdown.Item href="/referee-profiles">
                         Referees
                       </Dropdown.Item>
-                      <Dropdown.Item href="/team-manager-profiles">
-                        Team Managers
+                      <Dropdown.Item href="/eventOrganizer-profiles">
+                        Event Organizer
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
