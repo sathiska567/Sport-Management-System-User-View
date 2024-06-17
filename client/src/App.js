@@ -9,6 +9,7 @@ import Referee from "./components/Profiles/RefereeProfiles/RefereeProfile.jsx";
 import TeamManagerProfiles from "./components/Profiles/TeamManagerProfiles/TeamManagerProfiles.jsx";
 import TeamManager from "./components/Profiles/TeamManagerProfiles/TeamManagerProfile.jsx";
 import EventTable from "./components/EventTable/EvenTable.jsx"
+import PointTable from "./components/PointTable/PointTable.jsx"
 function App() {
   return (
     <BrowserRouter>
@@ -43,6 +44,9 @@ function App() {
       <Routes>
         <Route path='/EventTable' element={<EventTable/>}
         ></Route>
+      </Routes>
+      <Routes>
+        <Route path='/PointTable' element={<PointTable />}></Route>
       </Routes>
     </BrowserRouter>
   );
