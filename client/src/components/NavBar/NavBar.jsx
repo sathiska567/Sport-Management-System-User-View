@@ -77,7 +77,7 @@ const NavBar = ({children}) => {
                       Home
                     </span>
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-link me-3">
+                  <Nav.Link href="/EventTable" className="nav-link me-3">
                     <span className={navBarStyles.underlineAnimation}>
                       Events
                     </span>

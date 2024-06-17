@@ -97,7 +97,7 @@ const RefereeProfiles = () => {
               className={profileStyles.searchInput}
               type="text"
               class="form-control"
-              placeholder="Search player name"
+              placeholder="Search referee name"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
               style={{

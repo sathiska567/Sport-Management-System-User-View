@@ -115,7 +115,7 @@ const TeamManagerProfiles = () => {
               className={profileStyles.searchInput}
               type="text"
               class="form-control"
-              placeholder="Search player name"
+              placeholder="Search manager name"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
               style={{

@@ -115,7 +115,7 @@ const CoachProfiles = () => {
               className={profileStyles.searchInput}
               type="text"
               class="form-control"
-              placeholder="Search player name"
+              placeholder="Search Coach name"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
               style={{
