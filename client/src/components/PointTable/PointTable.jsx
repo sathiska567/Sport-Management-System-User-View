@@ -47,7 +47,7 @@ const PointTable = () => {
 
           <h2 className='title'>Point Table</h2>
         </div>
-
+           <div className="table-wrapper">
         <table>
 
           <thead>
@@ -74,6 +74,7 @@ const PointTable = () => {
           </tbody>
 
         </table>
+        </div>
       </div>
     </div>
     </NavBar>
