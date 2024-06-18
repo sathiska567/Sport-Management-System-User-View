@@ -3,11 +3,15 @@ import ProfileStyles from "../MemberProfilesStyles/ProfileStyles.module.css";
 import NavBar from "../../NavBar/NavBar";
 import { Progress, Flex } from "antd";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const EventOrganizerProfile = () => {
+  const location = useLocation();
   const downLoadMedicalReport = () => {
     console.log("Download Medical Report");
   };
+
+  console.log(location);
 
   return (
     <>
@@ -42,7 +46,7 @@ const EventOrganizerProfile = () => {
             <div className={ProfileStyles.memberImage}>
               <div>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s"
+                  src={location.state.image.image}
                   alt="manager Name"
                   width="300px"
                   height="270px"
@@ -71,33 +75,32 @@ const EventOrganizerProfile = () => {
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Name</td>
                         <td>
-                          : <span>ABS Silva</span>
+                          : <span>{location.state.image.eventOrganizerName}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Age</td>
                         <td>
-                          : <span>24</span>
+                          : <span>{location.state.image.eventOrganizerAge}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Born</td>
                         <td>
-                          : <span>1999</span>
+                          : <span>{location.state.image.eventOrganizerDateOfBirth}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>
-                          District
+                          Email
                         </td>
                         <td>
-                          : <span>Galle</span>
-                        </td>
+                        : {location.state.image.eventOrganizerEmail}                        </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Career</td>
                         <td>
-                          : <span>Team Manager</span>
+                          : <span>Event Organizer</span>
                         </td>
                       </tr>
                     </tbody>

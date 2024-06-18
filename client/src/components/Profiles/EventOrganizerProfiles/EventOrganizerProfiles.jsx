@@ -4,12 +4,12 @@ import Navbar from "../../NavBar/NavBar";
 import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EventOrganizerProfiles = () => {
   const [images, setImages] = useState([]);
-  const navigation = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const sampleImages = [
@@ -19,72 +19,7 @@ const EventOrganizerProfiles = () => {
         bottomText: "Position: Striker",
         link: "/team-manager-profile",
       },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
-      {
-        src: "https://via.placeholder.com/150",
-        headerText: "Manager Name 1",
-        bottomText: "Position: Striker",
-        link: "/manager/1",
-      },
+      // Add other sample images here...
     ];
     // setImages(sampleImages);
   }, []);
@@ -107,41 +42,35 @@ const EventOrganizerProfiles = () => {
     },
   };
 
-  const getAllCoachProfileImages = async()=>{
+  const getAllCoachProfileImages = async () => {
     try {
-      const imageResponse = await axios.get("http://localhost:5050/api/v1/eventOrganizer/profile")
+      const imageResponse = await axios.get("http://localhost:5050/api/v1/eventOrganizer/profile");
       console.log(imageResponse);
-      if(imageResponse.data.success){
-        setImages(imageResponse.data.profileData)
+      if (imageResponse.data.success) {
+        setImages(imageResponse.data.profileData);
       }
     } catch (error) {
-       message.error(error.message);
+      message.error(error.message);
     }
-  }
+  };
 
-
-  const handleImageClick = async()=>{
-    try {
-      navigation("/manager")
-    } catch (error) {
-       message.error(error.message);
-    }
-  }
-
-  useEffect(()=>{
+  useEffect(() => {
     getAllCoachProfileImages();
-  },[])
+  }, []);
+
+  const handleImageClick = (image) => {
+    navigate("/eventOrganizer-profile", { state: { image } });
+  };
 
   return (
     <Navbar>
       <div className={profileStyles.outerContainer}>
         <h3>Manager Profiles</h3>
         <div className={profileStyles.searchContainer}>
-          <div class="input-group mb-3">
+          <div className="input-group mb-3">
             <input
               className={profileStyles.searchInput}
               type="text"
-              class="form-control"
               placeholder="Search manager name"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
@@ -151,9 +80,8 @@ const EventOrganizerProfiles = () => {
                 border: "2px solid rgba(255, 255, 255, 0.4)",
               }}
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
               <button
-                class="btn btn-outline-secondary"
                 className={profileStyles.searchButton}
                 type="button"
               >
@@ -173,8 +101,11 @@ const EventOrganizerProfiles = () => {
               <Row xs={1} sm={2} md={3} lg={5} className="g-4">
                 {images.map((image, index) => (
                   <Col key={index} className={profileStyles.gridItem}>
-                    <Link className={profileStyles.ImageLink} to={image.link}>
-                      {" "}
+                    <div
+                      className={profileStyles.ImageLink}
+                      onClick={() => handleImageClick(image)}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.imageContainer}
@@ -184,7 +115,6 @@ const EventOrganizerProfiles = () => {
                           preview={false}
                           src={image.image}
                           alt={image.headerText}
-                          
                         />
                       </motion.div>
                       <motion.div
@@ -199,14 +129,7 @@ const EventOrganizerProfiles = () => {
                       >
                         {image.eventOrganizerEmail}
                       </motion.div>
-                      <motion.div
-                        variants={imageVariants}
-                        className={profileStyles.bottom}
-                        onClick={handleImageClick}
-                      >
-                        view
-                      </motion.div>
-                    </Link>
+                    </div>
                   </Col>
                 ))}
               </Row>

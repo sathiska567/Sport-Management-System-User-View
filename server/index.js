@@ -10,7 +10,7 @@ const GetPlayerProfileRoute = require("./router/GetPlayerProfileRoute/GetPlayerP
 const PointTableFullCode = require("./router/PointTableCodeRoute/PointTableCodeRoute")
 const GetCoachProfileRoute = require("./router/GetCoachProfileRoute/GetCoachProfileRoute")
 const GetEOProfileRoute = require("./router/GetEOProfileRoute/GetEOProfileRoute")
-
+const GetPlayerReviewRoute = require("./router/GetPlayerReviewRoute/GetPlayerReviewRoute")
 
 const app = express();
 
@@ -27,6 +27,9 @@ app.use("/api/v1/coach",GetCoachProfileRoute)
 
 // GET PLAYERS PROFILE IMAGE
 app.use("/api/v1/eventOrganizer",GetEOProfileRoute)
+
+// GET PLAYERS REVIEW
+app.use("/api/v1/player",GetPlayerReviewRoute)
 
 //Point table code
 app.use("/api/v1/PointTableFullCode",PointTableFullCode);

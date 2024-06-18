@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProfileStyles from "../MemberProfilesStyles/ProfileStyles.module.css";
 import NavBar from "../../NavBar/NavBar";
-import { Progress, Flex } from "antd";
+import { Progress, Flex, message } from "antd";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const PlayerProfile = () => {
+  const location = useLocation()
+  const [ballingReview , setBallingReview] = useState([])
+  const [battingReview , setBattingReview] = useState([])
+  const [fieldingReview, setFieldingReview] = useState([])
 
   const downLoadMedicalReport = () => {
     console.log("Download Medical Report");
   }
+
+  const getProfileReview = async()=>{
+     try {
+      const reviewResponse = await axios.post("http://localhost:5050/api/v1/player/review",{playerId:location.state.image._id})
+      console.log(reviewResponse);
+
+      if(reviewResponse.data.success){
+        setBallingReview(reviewResponse.data.data.bowlingReview)
+        setBattingReview(reviewResponse.data.data.battingReview)
+        setFieldingReview(reviewResponse.data.data.fieldingReview)
+      }
+
+     } catch (error) {
+        message.error(error.message);
+     }
+  }
+
+  useEffect(()=>{
+    getProfileReview()
+  },[])
+
+  console.log(location);
 
   return (
     <>
@@ -43,7 +71,7 @@ const PlayerProfile = () => {
             <div className={ProfileStyles.memberImage}>
               <div>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s"
+                  src={location.state.image.image}
                   alt="Player Name"
                   width="300px"
                   height="270px"
@@ -72,33 +100,33 @@ const PlayerProfile = () => {
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Name</td>
                         <td>
-                          : <span>ABS Silva</span>
+                          : <span>{location.state.image.playerName}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Age</td>
                         <td>
-                          : <span>24</span>
+                          : <span>{location.state.image.playerAge}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Born</td>
                         <td>
-                          : <span>1999</span>
+                          : <span>{location.state.image.playerDateOfBirth}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>
-                          District
+                          Email
                         </td>
                         <td>
-                          : <span>Galle</span>
+                          : <span>{location.state.image.playerEmail}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Career</td>
                         <td>
-                          : <span>Batsman</span>
+                          : <span>Player</span>
                         </td>
                       </tr>
                     </tbody>
@@ -135,7 +163,7 @@ const PlayerProfile = () => {
                   <Flex gap="small" wrap>
                     <Progress
                       type="circle"
-                      percent={56}
+                      percent={ballingReview  ? ballingReview : 43 }
                       strokeColor={{
                         "0%": "#f5222d",
                         "25%": "#ffec3d",
@@ -145,7 +173,7 @@ const PlayerProfile = () => {
                       }}
                       format={(percent) => (
                         <span className={ProfileStyles.Percentage}>
-                          {percent}%
+                          {ballingReview ? ballingReview : 43}%
                         </span>
                       )}
                     />
@@ -169,7 +197,7 @@ const PlayerProfile = () => {
                   <Flex gap="small" wrap>
                     <Progress
                       type="circle"
-                      percent={60}
+                      percent={battingReview ? battingReview : 50}
                       strokeColor={{
                         "0%": "#f5222d",
                         "25%": "#ffec3d",
@@ -179,7 +207,7 @@ const PlayerProfile = () => {
                       }}
                       format={(percent) => (
                         <span className={ProfileStyles.Percentage}>
-                          {percent}%
+                          {battingReview ? battingReview : 50}%
                         </span>
                       )}
                     />
@@ -203,7 +231,7 @@ const PlayerProfile = () => {
                   <Flex gap="small" wrap>
                     <Progress
                       type="circle"
-                      percent={90}
+                      percent={fieldingReview ? fieldingReview : 50}
                       strokeColor={{
                         "0%": "#f5222d",
                         "25%": "#ffec3d",
@@ -213,7 +241,7 @@ const PlayerProfile = () => {
                       }}
                       format={(percent) => (
                         <span className={ProfileStyles.Percentage}>
-                          {percent}%
+                          {fieldingReview ? fieldingReview : 50}%
                         </span>
                       )}
                     />

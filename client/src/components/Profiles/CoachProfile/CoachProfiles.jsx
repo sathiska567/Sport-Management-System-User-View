@@ -4,11 +4,12 @@ import Navbar from "../../NavBar/NavBar";
 import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CoachProfiles = () => {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const sampleImages = [
@@ -118,6 +119,11 @@ const CoachProfiles = () => {
     }
   }
 
+  
+  const handleImageClick = (image) => {
+    navigate("/coach-profile", { state: { image } });
+  };
+
   useEffect(()=>{
     getAllCoachProfileImages();
   },[])
@@ -164,8 +170,11 @@ const CoachProfiles = () => {
               <Row xs={1} sm={2} md={3} lg={5} className="g-4">
                 {images.map((image, index) => (
                   <Col key={index} className={profileStyles.gridItem}>
-                    <Link className={profileStyles.ImageLink} to={image.link}>
-                      {" "}
+                    <div
+                      className={profileStyles.ImageLink}
+                      onClick={() => handleImageClick(image)}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.imageContainer}
@@ -189,7 +198,7 @@ const CoachProfiles = () => {
                       >
                         {image.coachEmail}
                       </motion.div>
-                    </Link>
+                    </div>
                   </Col>
                 ))}
               </Row>
