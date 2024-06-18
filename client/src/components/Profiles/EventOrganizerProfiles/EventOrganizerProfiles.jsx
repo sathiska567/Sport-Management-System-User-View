@@ -4,11 +4,12 @@ import Navbar from "../../NavBar/NavBar";
 import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EventOrganizerProfiles = () => {
   const [images, setImages] = useState([]);
+  const navigation = useNavigate()
 
   useEffect(() => {
     const sampleImages = [
@@ -118,6 +119,15 @@ const EventOrganizerProfiles = () => {
     }
   }
 
+
+  const handleImageClick = async()=>{
+    try {
+      navigation("/manager")
+    } catch (error) {
+       message.error(error.message);
+    }
+  }
+
   useEffect(()=>{
     getAllCoachProfileImages();
   },[])
@@ -174,6 +184,7 @@ const EventOrganizerProfiles = () => {
                           preview={false}
                           src={image.image}
                           alt={image.headerText}
+                          
                         />
                       </motion.div>
                       <motion.div
@@ -187,6 +198,13 @@ const EventOrganizerProfiles = () => {
                         className={profileStyles.bottom}
                       >
                         {image.eventOrganizerEmail}
+                      </motion.div>
+                      <motion.div
+                        variants={imageVariants}
+                        className={profileStyles.bottom}
+                        onClick={handleImageClick}
+                      >
+                        view
                       </motion.div>
                     </Link>
                   </Col>
