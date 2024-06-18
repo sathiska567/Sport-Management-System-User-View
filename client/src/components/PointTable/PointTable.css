@@ -45,6 +45,29 @@
     top: 0;
     left: 0;
   }
+
+
+  .table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+    border: 3px solid transparent;
+    position: relative;
+  }
+  
+  .table-wrapper::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent color */
+    border-radius: 6px;
+  }
+  
+  .table-wrapper::-webkit-scrollbar-track {
+    background-color: transparent; /* Transparent  color */
+  }
   
   
   table {
@@ -56,6 +79,12 @@
     margin: auto;
   }
   
+  thead {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
   th {
     padding: 10px;
     text-align: center;
