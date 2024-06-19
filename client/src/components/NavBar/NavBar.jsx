@@ -77,9 +77,14 @@ const NavBar = ({children}) => {
                       Home
                     </span>
                   </Nav.Link>
-                  <Nav.Link href="/EventTable" className="nav-link me-3">
+                  <Nav.Link href="/event-table" className="nav-link me-3">
                     <span className={navBarStyles.underlineAnimation}>
                       Events
+                    </span>
+                  </Nav.Link>
+                  <Nav.Link href="/point-table" className="nav-link me-3">
+                    <span className={navBarStyles.underlineAnimation}>
+                      Point Table
                     </span>
                   </Nav.Link>
                   <Dropdown
@@ -92,7 +97,7 @@ const NavBar = ({children}) => {
                       id="dropdown-basic"
                     >
                       <span className={navBarStyles.underlineAnimation}>
-                        Event Members <i className="fas pl-2 fa-caret-down"></i>
+                        Members <i className="fas pl-2 fa-caret-down"></i>
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
