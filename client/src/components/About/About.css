@@ -8,13 +8,12 @@
 .box {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0px;
-  border-radius: 10px;
   width: 80%;
-  height: auto;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 5px solid red;
+  border-top: 3px solid red;
   margin-bottom: 20px;
 }
 
@@ -47,16 +46,10 @@
   
 }
 
-.paragraph:hover {
-  color: rgb(201, 103, 16);
-  transform: rotateY(0deg);
-}
-
 .paragraph-image {
   width: 60%;
-  height: 20%;
+  height: 60%;
   border-radius: 5px;
-  margin-top: 15px;
 }
 
 .paragraph-image img {
