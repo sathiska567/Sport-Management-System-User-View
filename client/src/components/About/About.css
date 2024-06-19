@@ -1,0 +1,66 @@
+.About {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0px;
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 5px solid red;
+  margin-bottom: 20px;
+}
+
+.title-container {
+  width: 100%; 
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.title {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.paragraph {
+  width: 60%;
+  border: 1px solid white; 
+  padding: 10px; 
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.paragraph:hover {
+  color: rgb(201, 103, 16);
+  transform: rotateY(0deg);
+}
+
+.paragraph-image {
+  width: 60%;
+  height: 20%;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.paragraph-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}

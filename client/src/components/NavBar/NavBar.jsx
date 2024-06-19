@@ -110,7 +110,7 @@ const NavBar = ({children}) => {
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
-                  <Nav.Link href="#" className="nav-link me-3">
+                  <Nav.Link href="/About" className="nav-link me-3">
                     <span className={navBarStyles.underlineAnimation}>
                       About
                     </span>
