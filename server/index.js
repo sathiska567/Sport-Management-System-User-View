@@ -12,7 +12,7 @@ const GetCoachProfileRoute = require("./router/GetCoachProfileRoute/GetCoachProf
 const GetEOProfileRoute = require("./router/GetEOProfileRoute/GetEOProfileRoute")
 const GetPlayerReviewRoute = require("./router/GetPlayerReviewRoute/GetPlayerReviewRoute")
 const GetRefereeReviewRoute = require("./router/GetRefereeProfileRoute/GetRefereeProfileRoute")
-
+const GetAllEvents = require("./router/GetEventsRoutes/GetEventsRoutes")
 const app = express();
 
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -37,6 +37,9 @@ app.use("/api/v1/referee",GetRefereeReviewRoute)
 
 //Point table code
 app.use("/api/v1/PointTableFullCode",PointTableFullCode);
+
+//All events get
+app.use("/api/v1/GetAllEvents", GetAllEvents)
 
 
 const PORT = process.env.PORT || 3000; // Define a default port if PORT is not set in .env
