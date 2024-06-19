@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import profileStyles from "../MemberProfilesStyles/MemberProfilesStyles.module.css";
 import Navbar from "../../NavBar/NavBar";
-import { Image } from "antd";
+import { Image, message } from "antd";
 import { Row, Col } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const RefereeProfiles = () => {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const sampleImages = [
@@ -66,8 +68,28 @@ const RefereeProfiles = () => {
         link: "/referee/1",
       },
     ];
-    setImages(sampleImages);
+    // setImages(sampleImages);
   }, []);
+
+  const getAllPlayerProfileImages = async()=>{
+    try {
+      const imageResponse = await axios.get("http://localhost:5050/api/v1/referee/profile")
+      console.log(imageResponse);
+      if(imageResponse.data.success){
+        setImages(imageResponse.data.profileData)
+      }
+    } catch (error) {
+       message.error(error.message);
+    }
+  }
+
+  const handleImageClick = (image) => {
+    navigate("/referee-profile", { state: { image } });
+  };
+
+  useEffect(()=>{
+    getAllPlayerProfileImages();
+  },[])
 
   const imageVariants = {
     hidden: { opacity: 0, y: 20, transition: { duration: 0.7 } },
@@ -128,8 +150,11 @@ const RefereeProfiles = () => {
               <Row xs={1} sm={2} md={3} lg={5} className="g-4">
                 {images.map((image, index) => (
                   <Col key={index} className={profileStyles.gridItem}>
-                    <Link className={profileStyles.ImageLink} to={image.link}>
-                      {" "}
+                    <div
+                      className={profileStyles.ImageLink}
+                      onClick={() => handleImageClick(image)}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.imageContainer}
@@ -137,7 +162,7 @@ const RefereeProfiles = () => {
                         <Image
                           className={profileStyles.Image}
                           preview={false}
-                          src={image.src}
+                          src={image.image}
                           alt={image.headerText}
                         />
                       </motion.div>
@@ -145,15 +170,15 @@ const RefereeProfiles = () => {
                         variants={imageVariants}
                         className={profileStyles.header}
                       >
-                        {image.headerText}
+                        {image.RefreeName}
                       </motion.div>
                       <motion.div
                         variants={imageVariants}
                         className={profileStyles.bottom}
                       >
-                        Position: Referee
+                        {image.RefreeEmail}
                       </motion.div>
-                    </Link>
+                    </div>
                   </Col>
                 ))}
               </Row>

@@ -3,11 +3,16 @@ import ProfileStyles from "../MemberProfilesStyles/ProfileStyles.module.css";
 import NavBar from "../../NavBar/NavBar";
 import { Progress, Flex } from "antd";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const RefereeProfile = () => {
   const downLoadMedicalReport = () => {
     console.log("Download Medical Report");
   };
+
+  const location = useLocation()
+
+  console.log(location);
 
   return (
     <>
@@ -42,7 +47,7 @@ const RefereeProfile = () => {
             <div className={ProfileStyles.memberImage}>
               <div>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJA32WU4rBpx7maglqeEtt3ot1tPIRWptxA&s"
+                  src={location.state.image.image}
                   alt="referee Name"
                   width="300px"
                   height="270px"
@@ -71,27 +76,27 @@ const RefereeProfile = () => {
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Name</td>
                         <td>
-                          : <span>ABS Silva</span>
+                          : <span>{location.state.image.RefreeName}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Age</td>
                         <td>
-                          : <span>24</span>
+                          : <span>{location.state.image.RefreeAge}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>Born</td>
                         <td>
-                          : <span>1999</span>
+                          : <span>{location.state.image.RefreeDateOfBirth}</span>
                         </td>
                       </tr>
                       <tr>
                         <td className={ProfileStyles.memberInfoPara}>
-                          District
+                          Email
                         </td>
                         <td>
-                          : <span>Galle</span>
+                          : <span>{location.state.image.RefreeEmail}</span>
                         </td>
                       </tr>
                       <tr>
