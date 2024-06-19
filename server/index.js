@@ -11,6 +11,7 @@ const PointTableFullCode = require("./router/PointTableCodeRoute/PointTableCodeR
 const GetCoachProfileRoute = require("./router/GetCoachProfileRoute/GetCoachProfileRoute")
 const GetEOProfileRoute = require("./router/GetEOProfileRoute/GetEOProfileRoute")
 const GetPlayerReviewRoute = require("./router/GetPlayerReviewRoute/GetPlayerReviewRoute")
+const GetRefereeReviewRoute = require("./router/GetRefereeProfileRoute/GetRefereeProfileRoute")
 
 const app = express();
 
@@ -30,6 +31,9 @@ app.use("/api/v1/eventOrganizer",GetEOProfileRoute)
 
 // GET PLAYERS REVIEW
 app.use("/api/v1/player",GetPlayerReviewRoute)
+
+// GET REFEREE PROFILE
+app.use("/api/v1/referee",GetRefereeReviewRoute)
 
 //Point table code
 app.use("/api/v1/PointTableFullCode",PointTableFullCode);
