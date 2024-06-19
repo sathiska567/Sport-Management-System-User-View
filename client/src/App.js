@@ -43,11 +43,11 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path='/EventTable' element={<EventTable/>}
+        <Route path='/event-table' element={<EventTable/>}
         ></Route>
       </Routes>
       <Routes>
-        <Route path='/PointTable' element={<PointTable />}></Route>
+        <Route path='/point-table' element={<PointTable />}></Route>
       </Routes>
     </BrowserRouter>
   );
