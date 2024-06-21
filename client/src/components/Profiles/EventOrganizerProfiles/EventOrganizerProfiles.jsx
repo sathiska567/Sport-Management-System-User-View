@@ -44,7 +44,9 @@ const EventOrganizerProfiles = () => {
 
   const getAllCoachProfileImages = async () => {
     try {
-      const imageResponse = await axios.get("http://localhost:5050/api/v1/eventOrganizer/profile");
+      const imageResponse = await axios.get(
+        "http://localhost:5050/api/v1/eventOrganizer/profile"
+      );
       console.log(imageResponse);
       if (imageResponse.data.success) {
         setImages(imageResponse.data.profileData);
@@ -65,9 +67,9 @@ const EventOrganizerProfiles = () => {
   return (
     <Navbar>
       <div className={profileStyles.outerContainer}>
-        <h3>Manager Profiles</h3>
+        <h3>Event Organizer Profiles</h3>
         <div className={profileStyles.searchContainer}>
-          <div className="input-group mb-3">
+          <div class="input-group mb-3">
             <input
               className={profileStyles.searchInput}
               type="text"
@@ -75,13 +77,15 @@ const EventOrganizerProfiles = () => {
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
               style={{
+                width: "35vw",
                 backgroundColor: "transparent",
                 color: "white",
                 border: "2px solid rgba(255, 255, 255, 0.4)",
               }}
             />
-            <div className="input-group-append">
+            <div class="input-group-append">
               <button
+                class="btn btn-outline-secondary"
                 className={profileStyles.searchButton}
                 type="button"
               >
@@ -104,7 +108,7 @@ const EventOrganizerProfiles = () => {
                     <div
                       className={profileStyles.ImageLink}
                       onClick={() => handleImageClick(image)}
-                      style={{ cursor: 'pointer' }}
+                      style={{ cursor: "pointer" }}
                     >
                       <motion.div
                         variants={imageVariants}
