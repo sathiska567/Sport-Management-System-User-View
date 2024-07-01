@@ -125,7 +125,7 @@ const NavBar = ({children}) => {
                   className={navBarStyles.joinButton}
                   onClick={() => register()}
                 >
-                  Sign In / Register
+                  <a href="http://localhost:3000/" target="_blank" style={{textDecoration:"none",color:'white'}}>Sign In / Register</a>
                 </Button>
               </Navbar.Collapse>
             </Container>

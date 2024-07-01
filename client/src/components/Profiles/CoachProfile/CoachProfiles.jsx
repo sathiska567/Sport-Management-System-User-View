@@ -134,7 +134,7 @@ const CoachProfiles = () => {
       <div className={profileStyles.outerContainer}>
         <h3>Coach Profiles</h3>
         <div className={profileStyles.searchContainer}>
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <input
               className={profileStyles.searchInput}
               type="text"
@@ -157,7 +157,7 @@ const CoachProfiles = () => {
                 Search
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={profileStyles.profiles}>
           <AnimatePresence>

@@ -29,13 +29,13 @@ const RefereeProfile = () => {
               <span>Referee Name</span>
             </h1>
             <div>
-              <button
+              {/* <button
                 onClick={() => {
                   downLoadMedicalReport();
                 }}
               >
                 Get Medical Report
-              </button>
+              </button> */}
             </div>
           </motion.div>
           <motion.div

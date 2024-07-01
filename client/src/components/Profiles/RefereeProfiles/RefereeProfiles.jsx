@@ -114,7 +114,7 @@ const RefereeProfiles = () => {
       <div className={profileStyles.outerContainer}>
         <h3>Referee Profiles</h3>
         <div className={profileStyles.searchContainer}>
-          <div class="input-group mb-3">
+          {/* <div class="input-group mb-3">
             <input
               className={profileStyles.searchInput}
               type="text"
@@ -137,7 +137,7 @@ const RefereeProfiles = () => {
                 Search
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={profileStyles.profiles}>
           <AnimatePresence>
