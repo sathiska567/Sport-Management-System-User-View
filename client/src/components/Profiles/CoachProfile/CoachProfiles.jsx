@@ -133,32 +133,6 @@ const CoachProfiles = () => {
     <Navbar>
       <div className={profileStyles.outerContainer}>
         <h3>Coach Profiles</h3>
-        <div className={profileStyles.searchContainer}>
-          <div class="input-group mb-3">
-            <input
-              className={profileStyles.searchInput}
-              type="text"
-              class="form-control"
-              placeholder="Search Coach name"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-              style={{
-                backgroundColor: "transparent",
-                color: "white",
-                border: "2px solid rgba(255, 255, 255, 0.4)",
-              }}
-            />
-            <div class="input-group-append">
-              <button
-                class="btn btn-outline-secondary"
-                className={profileStyles.searchButton}
-                type="button"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
         <div className={profileStyles.profiles}>
           <AnimatePresence>
             <motion.div
