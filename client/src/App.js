@@ -12,6 +12,7 @@ import PointTable from "./components/PointTable/PointTable.jsx"
 import EventOrganizerProfiles from './components/Profiles/EventOrganizerProfiles/EventOrganizerProfiles.jsx';
 import EventOrganizerProfile from './components/Profiles/EventOrganizerProfiles/EventOrganizerProfile.jsx';
 import About from './components/About/About.jsx'
+import EventList from './components/PointTable/EventList.jsx'
 function App() {
   return (
     <BrowserRouter>
@@ -52,6 +53,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path='/About' element={<About />}></Route>
+      </Routes>
+      <Routes>
+        <Route path='/EventList' element={<EventList/>}></Route>
       </Routes>
     </BrowserRouter>
   );

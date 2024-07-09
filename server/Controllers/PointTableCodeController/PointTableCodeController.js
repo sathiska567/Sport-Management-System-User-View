@@ -1,17 +1,12 @@
 const PointTableFormModel = require("../../Model/PointTableFormModel/PointTableFormModel");
 
-
-
-
 const getPointTable = async (req, res) => {
-
     try {
         let dataQuery = PointTableFormModel.find({});
 
-       
-        if (req.query && req.query.q) {
-            const q = req.query.q;
-            dataQuery = dataQuery.find({ nameOfTheTeam: { $regex: q, $options: "i" } });
+        if (req.query && req.query.event) {
+            const event = req.query.event;
+            dataQuery = dataQuery.find({ nameOfTheMatch: { $regex: event, $options: "i" } });
         }
 
         const data = await dataQuery.exec();
@@ -20,12 +15,7 @@ const getPointTable = async (req, res) => {
             return res.json({ success: false, data: [] });
         }
 
-
-
-
-        // Aggregating rows by event name and team name
         const aggregatedData = data.reduce((acc, curr) => {
-            
             const key = `${curr.nameOfTheMatch}_${curr.nameOfTheTeam}`;
             if (!acc[key]) {
                 acc[key] = { 
@@ -44,11 +34,6 @@ const getPointTable = async (req, res) => {
             return acc;
         }, {});
 
-
-
-
-
-        // NRR calculate
         let finalData = Object.values(aggregatedData).map((r) => {
             const nrr = ((r.totalRunsEachTeamMatches / r.totalOversEachTeam) - (
                 r.totalMarksForEachTeam / r.totalOversEachTeam
@@ -57,10 +42,6 @@ const getPointTable = async (req, res) => {
             return { ...r, nrr: parseFloat(nrr) };
         });
 
-
-
-
-        // Sort data by totalMarksForEachTeam in descending order
         finalData.sort((a, b) => b.totalMarksForEachTeam - a.totalMarksForEachTeam);
 
         res.json({
@@ -75,7 +56,5 @@ const getPointTable = async (req, res) => {
         });
     }
 }
-
-
 
 module.exports = { getPointTable };
