@@ -82,7 +82,7 @@ const NavBar = ({children}) => {
                       Events
                     </span>
                   </Nav.Link>
-                  <Nav.Link href="/point-table" className="nav-link me-3">
+                  <Nav.Link href="/EventList" className="nav-link me-3">
                     <span className={navBarStyles.underlineAnimation}>
                       Point Table
                     </span>
